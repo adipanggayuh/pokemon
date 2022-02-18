@@ -1,1 +1,1 @@
-Pokemon app
+Pokemon
