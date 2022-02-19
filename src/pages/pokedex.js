@@ -18,7 +18,7 @@ const Pokedex = () => {
                         return (
                             <Grid item xs={6} key={i}>
                                 <Card>
-                                    {poke.name}
+                                    {poke.nickName + poke.name}
                                     <Button onClick={() => onRelease(i)}>Release</Button>
                                 </Card>
                             </Grid>

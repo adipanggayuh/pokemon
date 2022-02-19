@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import failedImage from '../../media/catchmeagain.png';
+import { Typography } from '@mui/material';
 
-const FailedDialog = ({ open, setOpen, onSubmit }) => {
-    const [name, setName] = useState("");
-
-    const handleSubmit = () => {
-        onSubmit(name);
+const FailedDialog = ({ open, setOpen, onCatchAgain }) => {
+    const onTryAgain = () => {
+        onCatchAgain();
+        setOpen(false);
     };
 
     const handleClose = () => {
@@ -20,18 +18,15 @@ const FailedDialog = ({ open, setOpen, onSubmit }) => {
 
     return (
 
-        <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Failed</DialogTitle>
+        <Dialog open={open} onClose={handleClose} >
             <DialogContent>
-                <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We
-                    will send updates occasionally.
-                </DialogContentText>
-
+                <Typography align='center'>
+                    <img src={failedImage} alt="" height={200} />
+                </Typography>
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleSubmit}>Catch me again</Button>
+                <Button onClick={onTryAgain}>Catch me again</Button>
             </DialogActions>
         </Dialog>
 

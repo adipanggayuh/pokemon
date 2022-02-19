@@ -4,9 +4,9 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import successImage from '../../media/success.png';
 import { useSelector } from 'react-redux';
+import { Typography } from '@mui/material';
 
 const SuccessDialog = ({ open, setOpen, onSubmit }) => {
     const [name, setName] = useState("");
@@ -22,9 +22,9 @@ const SuccessDialog = ({ open, setOpen, onSubmit }) => {
         if (validateName()) {
             setError(true);
         } else {
-            onSubmit(name);
             setError(false);
             setOpen(false);
+            onSubmit(name);
         }
 
     };
@@ -36,12 +36,11 @@ const SuccessDialog = ({ open, setOpen, onSubmit }) => {
     return (
 
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Subscribe</DialogTitle>
+
             <DialogContent>
-                <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We
-                    will send updates occasionally.
-                </DialogContentText>
+                <Typography align='center'>
+                    <img src={successImage} alt="" height={200} />
+                </Typography>
                 <TextField
                     error={error}
                     autoFocus
@@ -52,11 +51,12 @@ const SuccessDialog = ({ open, setOpen, onSubmit }) => {
                     fullWidth
                     variant="standard"
                     onChange={(e) => setName(e.target.value)}
+                    helperText={error ? 'You have pokemon with this name' : ""}
                 />
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={handleSubmit}>Subscribe</Button>
+                <Button onClick={handleSubmit}>Add To Pokedex</Button>
             </DialogActions>
         </Dialog>
 

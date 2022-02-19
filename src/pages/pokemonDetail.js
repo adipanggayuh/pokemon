@@ -112,7 +112,7 @@ const PokemonDetail = () => {
             </Grid>
 
             <SuccessDialog open={openSuccessDialog} setOpen={setOpenSuccessDialog} onSubmit={addToPokedex} />
-            <FailedDialog open={openFailedDialog} setOpen={setOpenFailedDialog} />
+            <FailedDialog open={openFailedDialog} setOpen={setOpenFailedDialog} onCatchAgain={handleButtonClick} />
         </Container>
     )
 }
