@@ -5,6 +5,9 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { Badge, IconButton } from '@mui/material';
+import CatchingPokemon from '@mui/icons-material/CatchingPokemon';
+
 
 const Header = () => {
 
@@ -31,6 +34,15 @@ const Header = () => {
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
                         <img src={logo} alt='' height={70} />
+                    </Typography>
+                    <Typography sx={{ flexGrow: 1, }} align='right'>
+                        <Link to="/pokedex">
+                            <IconButton>
+                                <Badge badgeContent={5} color="secondary">
+                                    <CatchingPokemon sx={{ color: '#ffff', fontSize: 30 }} />
+                                </Badge>
+                            </IconButton>
+                        </Link>
                     </Typography>
 
                 </Toolbar>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid, } from '@mui/material';
+import { Container, Divider, Grid, } from '@mui/material';
 import axios from 'axios';
 import { GET_POKEMON_LIST_URL } from '../constant/apiUrl';
 import PokemonList from '../components/pokemonList/pokemonList';
 import NavigationList from '../components/pokemonList/navigation';
 import { useNavigate } from "react-router-dom";
+import TopInfo from '../components/pokemonList/topInfo';
 
 const Home = () => {
     const navigate = useNavigate();
@@ -36,6 +37,8 @@ const Home = () => {
     return (
         <Container>
             <Grid container rowSpacing={2} columnSpacing={2}>
+                <TopInfo onNext={onNext} onPrev={onPrev} />
+                <Divider sx={{ padding: 1, width: '100%' }} />
                 <PokemonList data={pokemonList.results} onDetail={onDetail} />
                 <NavigationList onNextData={onNext} onPrevData={onPrev} />
             </Grid>
