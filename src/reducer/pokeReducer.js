@@ -4,7 +4,7 @@ const initialState = {
   pokedex: [],
 };
 
-const reducer = (state = initialState, action) => {
+const pokeReducer = (state = initialState, action) => {
   switch (action.type) {
     //---------------------------------
     // ADD_TO_POKEDEX
@@ -30,4 +30,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default pokeReducer;

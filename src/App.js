@@ -6,12 +6,12 @@ import { store, persistor } from './config/store';
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <div className="App">
-          <Header />
-          <RootNavigation />
-        </div>
-      </PersistGate>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+      <div className="App">
+        <Header />
+        <RootNavigation />
+      </div>
+      {/* </PersistGate> */}
     </Provider>
   );
 }

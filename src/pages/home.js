@@ -23,7 +23,9 @@ const Home = () => {
     useEffect(() => {
         fetchData(GET_POKEMON_LIST_URL);
     }, []);
-
+    const onDetail = (url) => {
+        navigate('/pokemon' + url.replace(GET_POKEMON_LIST_URL, ""));
+    }
     const onNext = () => {
         pokemonList.next && fetchData(pokemonList.next);
     };
@@ -34,7 +36,7 @@ const Home = () => {
     return (
         <Container>
             <Grid container rowSpacing={2} columnSpacing={2}>
-                <PokemonList data={pokemonList.results} />
+                <PokemonList data={pokemonList.results} onDetail={onDetail} />
                 <NavigationList onNextData={onNext} onPrevData={onPrev} />
             </Grid>
         </Container>

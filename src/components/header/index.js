@@ -7,8 +7,9 @@ import Grid from '@mui/material/Grid';
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
 import { Badge } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Header = () => {
-
+    const pokedex = useSelector(store => store.pokedex);
 
     return (
         <AppBar position="static">
@@ -27,7 +28,7 @@ const Header = () => {
                     </Grid>
                     <Grid item xs={6} textAlign={'right'}>
                         <Link to="/pokedex">
-                            <Badge badgeContent={4} color="secondary">
+                            <Badge badgeContent={pokedex.length} color="secondary">
                                 <CatchingPokemonIcon color="action" />
                             </Badge>
                         </Link>
